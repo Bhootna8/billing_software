@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------------------- */
+/* 1. TAILWIND V4 @THEME CONFIGURATION                                        */
+/* -------------------------------------------------------------------------- */
+@theme {
+  /* Radius Theme Tokens (Maps to rounded-sm, rounded-md, rounded-lg, rounded-xl) */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 9999px;
+
+  /* Restrained Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.10);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 2. PRIMITIVE & SEMANTIC CSS VARIABLE TOKENS                                */
+/* -------------------------------------------------------------------------- */
+:root {
+  /* Blue Palette */
+  --primitive-blue-50: #EFF6FF;
+  --primitive-blue-100: #DBEAFE;
+  --primitive-blue-200: #BFDBFE;
+  --primitive-blue-300: #93C5FD;
+  --primitive-blue-400: #60A5FA;
+  --primitive-blue-500: #3B82F6;
+  --primitive-blue-600: #2563EB;
+  --primitive-blue-700: #1D4ED8;
+  --primitive-blue-800: #1E40AF;
+  --primitive-blue-900: #1E3A8A;
+
+  /* Neutral Gray Palette */
+  --primitive-gray-25: #FCFCFD;
+  --primitive-gray-50: #F9FAFB;
+  --primitive-gray-100: #F3F4F6;
+  --primitive-gray-200: #E5E7EB;
+  --primitive-gray-300: #D1D5DB;
+  --primitive-gray-400: #9CA3AF;
+  --primitive-gray-500: #6B7280;
+  --primitive-gray-600: #4B5563;
+  --primitive-gray-700: #374151;
+  --primitive-gray-800: #1F2937;
+  --primitive-gray-900: #111827;
+
+  /* Semantic Palettes */
+  --primitive-success-50: #F0FDF4;
+  --primitive-success-600: #16A34A;
+  --primitive-success-700: #15803D;
+
+  --primitive-warning-50: #FFFBEB;
+  --primitive-warning-600: #D97706;
+  --primitive-warning-700: #B45309;
+
+  --primitive-error-50: #FEF2F2;
+  --primitive-error-600: #DC2626;
+  --primitive-error-700: #B91C1C;
+
+  /* Spacing Grid */
+  --space-0: 0px;
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 20px;
+  --space-7: 24px;
+  --space-8: 32px;
+  --space-9: 40px;
+  --space-10: 48px;
+  --space-11: 64px;
+  --space-12: 80px;
+  --space-13: 96px;
+
+  /* Control Heights */
+  --height-sm: 32px;
+  --height-md: 36px;
+  --height-lg: 40px;
+  --height-xl: 48px;
+  --height-pos: 44px;
+
+  /* Z-Index Hierarchy */
+  --z-base: 0;
+  --z-sticky: 10;
+  --z-dropdown: 100;
+  --z-popover: 200;
+  --z-drawer: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-command: 600;
+  --z-overlay: 700;
+
+  /* Semantic Application Surfaces */
+  --color-bg-page: var(--primitive-gray-50);
+  --color-bg-surface: #FFFFFF;
+  --color-bg-subtle: var(--primitive-gray-100);
+  --color-bg-hover: var(--primitive-gray-100);
+  --color-bg-active: var(--primitive-blue-50);
+
+  --color-text-primary: var(--primitive-gray-900);
+  --color-text-secondary: var(--primitive-gray-600);
+  --color-text-muted: var(--primitive-gray-500);
+  --color-text-disabled: var(--primitive-gray-400);
+
+  --color-border-default: var(--primitive-gray-200);
+  --color-border-strong: var(--primitive-gray-300);
+
+  --color-action-primary: var(--primitive-blue-600);
+  --color-action-primary-hover: var(--primitive-blue-700);
+  --color-action-primary-active: var(--primitive-blue-800);
+  --color-action-primary-subtle: var(--primitive-blue-50);
+  --color-action-primary-text: var(--primitive-blue-700);
+
+  --color-success-bg: var(--primitive-success-50);
+  --color-success: var(--primitive-success-600);
+  --color-success-dark: var(--primitive-success-700);
+
+  --color-warning-bg: var(--primitive-warning-50);
+  --color-warning: var(--primitive-warning-600);
+  --color-warning-dark: var(--primitive-warning-700);
+
+  --color-danger-bg: var(--primitive-error-50);
+  --color-danger: var(--primitive-error-600);
+  --color-danger-dark: var(--primitive-error-700);
+
+  --color-focus: var(--primitive-blue-600);
+}
+
+/* -------------------------------------------------------------------------- */
+/* 3. POS DENSITY MODE OVERRIDES                                              */
+/* -------------------------------------------------------------------------- */
+.pos {
+  --control-height: 44px;
+  --table-row-height: 48px;
+  --page-padding: 16px;
+  --component-gap: 8px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* 4. BASE & TYPOGRAPHY APPLICATION RULES                                     */
+/* -------------------------------------------------------------------------- */
+@layer base {
+  body {
+    background-color: var(--color-bg-page);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* High-visibility keyboard focus indicator */
+  *:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 1px;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.18);
+  }
+
+  /* Operational Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--primitive-gray-100);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--primitive-gray-300);
+    border-radius: var(--radius-sm);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primitive-gray-400);
+  }
+}
